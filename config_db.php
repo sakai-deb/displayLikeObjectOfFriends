@@ -5,10 +5,7 @@ define('DB_PASSWORD', getenv('C4SA_MYSQL_PASSWORD'));
 define('DB_HOST', getenv('C4SA_MYSQL_HOST'));
 
 $res = array(
-	"200" => "おめでとう！接続は成功しました。真の友達と言えるでしょう！",
-	"404" => "残念。。接続失敗です。相手の心がここにあらずだそうです",
-	"401" => "残念。。接続失敗です。接続先のパートナーの認証が必要なようです",
-	"403" => "残念。。接続失敗です。接続権限がないようです。",
+	"key" => "value",
 );
 	
 $dsn = 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';charset=utf8;';

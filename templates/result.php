@@ -13,7 +13,7 @@
 				foreach($array_likes[data] as $data){
 					echo '<dt><a href="http://graph.facebook.com/'.$data['id'].'">'.$data['name'].'</a></dt>';
 					echo '<dd><img src="https://graph.facebook.com/'.$data['id'].'/picture" alt="picture of '.$data['name'].'"></dd>';
-					echo '<dd>catagory:'.$data['catagory'].'</dd>';
+					echo '<dd>category:'.$data['category'].'</dd>';
 				}
 			?>
 		</dl>

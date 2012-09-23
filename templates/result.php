@@ -12,8 +12,8 @@
 			<?php 
 				foreach($array_likes[data] as $data){
 					echo '<dt><a href="http://graph.facebook.com/'.$data['id'].'">'.$data['name'].'</a></dt>';
-					echo '<dd><img src="https://graph.facebook.com/'.$data['id'].'/picture" alt="picture of '.$data['name'].'">'.$data['name'].'</dd>';
-					echo '<dd>description:'.$data['description'].'</dd>';
+					echo '<dd><img src="https://graph.facebook.com/'.$data['id'].'/picture" alt="picture of '.$data['name'].'"></dd>';
+					echo '<dd>catagory:'.$data['catagory'].'</dd>';
 				}
 			?>
 		</dl>

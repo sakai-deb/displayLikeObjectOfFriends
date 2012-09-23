@@ -1,4 +1,4 @@
-$src, $dest<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 	<head>
     	<title>DISPLAY LIKES OBJECT OF FACEBOOK FRIENDS</title>
@@ -7,12 +7,12 @@ $src, $dest<!DOCTYPE HTML>
 	</head>
 	<body>
     	<h1>DISPLAY LIKES OBJECT OF FACEBOOK FRIENDS</h1>
-		<p><?php echo $fb_id</p>
+		<p><?php echo $fb_id."'s likes objects"?></p>
 		<dl>
 			<?php 
 				foreach($array_likes[data] as $data){
 					echo '<dt><a href="http://graph.facebook.com/'.$data['id'].'">'.$data['name'].'</a></dt>';
-					echo '<dd><img src="https://graph.facebook.com/'.$data['id'].'/picture" alt="picture of '.$data['name'].'">'.$data['name'].'</a></dd>';
+					echo '<dd><img src="https://graph.facebook.com/'.$data['id'].'/picture" alt="picture of '.$data['name'].'">'.$data['name'].'</dd>';
 					echo '<dd>description:'.$data['description'].'</dd>';
 				}
 			?>

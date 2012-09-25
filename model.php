@@ -92,6 +92,7 @@ this function is excecute when be accessed to http://xxxx/index.php/result?fb_id
 */
 function getLikes($fb_id){
 	if (!is_null($fb_id)){
+		try{
 		/*
 			$array_likes include object which user likes.
 			{
@@ -105,8 +106,13 @@ function getLikes($fb_id){
 			    ]
 			} 
 			*/
-		$array_likes = $GLOBALS['facebook']->api("/${fbid}/likes", 'GET');
-		require 'templates/result.php';
+			$array_likes = $GLOBALS['facebook']->api("/${fb_id}/likes", 'GET');
+			require 'templates/result.php';
+		} catch(FacebookApiException $e){
+       		loginToFb($param);
+	        error_log($e->getType());
+        	error_log($e->getMessage());
+   		} 	
 	}
 	else {
 		echo '指定された友人がいません';

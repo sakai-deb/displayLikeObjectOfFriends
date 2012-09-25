@@ -126,3 +126,13 @@ function loginToFb($param){
 	$login_url = $GLOBALS['facebook']->getLoginUrl($param);
 	echo 'Please <a href="' . $login_url . '">login.</a>';
 }
+
+/*
+Get and display User's Likes Objects.
+This function excecute when be accessed to index.php or / or redirect.
+*/
+function dispMyLikes(){
+	$user_info = getFbUserInfo($GLOBALS['uid']);
+	getLikes($GLOBALS['uid']);
+	require 'templates/start.php';
+}

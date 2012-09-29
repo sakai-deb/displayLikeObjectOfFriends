@@ -13,6 +13,10 @@ $config['appId'] = 'YOUR APP ID';
 $config['secret'] = 'YOUR APP SECRET';
 $config['fileUpload'] = false; // optional
 $facebook = new Facebook($config);
+$param = array(
+	'scope' => 'user_about_me,friends_about_me,user_likes,friends_likes',
+	'redirect_uri' => 'http://YOUR DOMAIN NAME/index.php'
+);
 $db;
 
 /*
@@ -56,10 +60,6 @@ function getFbUserInfo($fbid){
 this function execute when be accessed to http://xxx/index.php or http://xxx/ or redirected by Facebook.
 */
 function listFriends(){
-	$param = array(
-		'scope' => 'user_about_me,friends_about_me,user_likes,friends_likes',
-		'redirect_uri' => 'http://YOUR DOMAIN NAME/index.php'
-	);
 	if($GLOBALS['uid']){
 		try {
 			/*
@@ -75,15 +75,15 @@ function listFriends(){
 			*/
 			$user_friends = $GLOBALS['facebook']->api('/me/friends', 'GET');
 			//Display for list of friends.
-            require 'templates/list.php';
+            require 'templates/start.php';
 
 		} catch(FacebookApiException $e){
-       		loginToFb($param);
+       		loginToFb($GLOBALS['param']);
 	        error_log($e->getType());
         	error_log($e->getMessage());
    		}   
    	} else {
-      	loginToFb($param);
+      	loginToFb($GLOBALS['param']);
     }
 }
 
@@ -109,7 +109,7 @@ function getLikes($fb_id){
 			$array_likes = $GLOBALS['facebook']->api("/${fb_id}/likes", 'GET');
 			require 'templates/result.php';
 		} catch(FacebookApiException $e){
-       		loginToFb($param);
+       		loginToFb($GLOBALS['param']);
 	        error_log($e->getType());
         	error_log($e->getMessage());
    		} 	
@@ -124,7 +124,8 @@ function loginToFb($param){
 	$login_url include URL to authorize application.
 	*/
 	$login_url = $GLOBALS['facebook']->getLoginUrl($param);
-	echo 'Please <a href="' . $login_url . '">login.</a>';
+	require 'templates/login.php';
+	//echo 'Please <a href="' . $login_url . '">login.</a>';
 }
 
 /*

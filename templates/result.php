@@ -3,6 +3,7 @@
 	<head>
     	<title>DISPLAY LIKES OBJECT OF FACEBOOK FRIENDS</title>
 		<link rel="stylesheet" type="text/css" href="./css/stylesheet.css" />
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.css" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
 	<body>

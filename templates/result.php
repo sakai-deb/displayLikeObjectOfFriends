@@ -9,11 +9,13 @@
 	<body>
 		<div id="wrapper">
     	<h1><img src="./images/title.png" alt="DISPLAY FRIENDS NUM OF SAME LIKES OBJECT"></h1>
+    	<div class="alert alert-block alert-success">
 		<p>
 			<?php 
 				echo '<img src="https://graph.facebook.com/'.$uid.'/picture" alt="picture of me">and<img src="https://graph.facebook.com/'.$fb_id.'/picture" alt="picture of '.$fb_id.'"> Match Percentage is <strong>'.$percent.'%</strong>';
 			?>
 		</p>
+		</div>
 		<p>You and friends likes these Object.</p>
 		<dl>
 			<?php 
@@ -24,6 +26,7 @@
 				}
 			?>
 		</dl>
+		<p class="btn btn-primary"><?php echo '<a href="'.$url.'">Go Back</a>'; ?></p>
 		</div>
 	</body>
 </html>

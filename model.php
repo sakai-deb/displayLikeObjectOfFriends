@@ -94,6 +94,7 @@ this function is excecute when be accessed to http://xxxx/index.php/result?fb_id
 function getLikes($fb_id){
 	$count = 0;
 	$number = 0;
+	$uid = $GLOBALS['facebook']->getUser();
 	if (!is_null($fb_id)){
 		try{
 			/*
@@ -122,7 +123,7 @@ function getLikes($fb_id){
 				$number++;
 			}
 			$percent = ($count / $number) * 100;
-			sqrt($percent);
+			$percent = round($percent);
 			require 'templates/result.php';
 		} catch(FacebookApiException $e){
        		loginToFb($GLOBALS['param']);

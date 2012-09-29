@@ -2,7 +2,7 @@
 <html>
 	<head>
     	<title>DISPLAY LIKES OBJECT OF FACEBOOK FRIENDS</title>
-		<link rel="stylesheet" type="text/css" href="./css/stylesheet.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
 		<link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.css" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
@@ -11,7 +11,7 @@
     	<h1><img src="./images/title.png" alt="DISPLAY FRIENDS NUM OF SAME LIKES OBJECT"></h1>
 		<p>
 			<?php 
-				echo '<img src="https://graph.facebook.com/'.$uid.'/picture" alt="picture of me">and<img src="https://graph.facebook.com/'.$fb_id.'/picture" alt="picture of '.$fb_id.'"> Match Percentage is <strong>'.$percent.'</strong>';
+				echo '<img src="https://graph.facebook.com/'.$uid.'/picture" alt="picture of me">and<img src="https://graph.facebook.com/'.$fb_id.'/picture" alt="picture of '.$fb_id.'"> Match Percentage is <strong>'.$percent.'%</strong>';
 			?>
 		</p>
 		<p>You and friends likes these Object.</p>

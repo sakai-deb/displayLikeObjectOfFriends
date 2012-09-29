@@ -26,7 +26,7 @@
 				}
 			?>
 		</dl>
-		<p class="btn btn-primary"><?php echo '<a href="'.$url.'">Go Back</a>'; ?></p>
+		<p class="btn"><?php echo '<a href="'.$url.'">Go Back</a>'; ?></p>
 		</div>
 	</body>
 </html>

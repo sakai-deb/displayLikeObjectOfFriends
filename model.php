@@ -95,6 +95,7 @@ function getLikes($fb_id){
 	$count = 0;
 	$number = 0;
 	$uid = $GLOBALS['facebook']->getUser();
+	$url = $GLOBALS['param']{'redirect_url'};
 	if (!is_null($fb_id)){
 		try{
 			/*

@@ -1,22 +1,23 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-    	<title>DISPLAY FRIENDS NUM OF SAME LIKES OBJECT</title>
-		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+    	<title>DISPLAY LIKES OBJECT OF FACEBOOK FRIENDS</title>
+		<link rel="stylesheet" type="text/css" href="./css/stylesheet.css" />
 		<link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.css" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
 	<body>
+	<div id="wrapper">
     	<h1><img src="./images/title.png" alt="DISPLAY FRIENDS NUM OF SAME LIKES OBJECT"></h1>
-		<p><?php echo $user_info['data']->['name']."'s likes objects"?></p>
-		<dl>
-			<?php 
-				foreach($array_likes[data] as $data){
-					echo '<dt><a href="http://graph.facebook.com/'.$data['id'].'">'.$data['name'].'</a></dt>';
-					echo '<dd><a href="'.$GLOBALS['param']->['redirect_url'].'?obj_id='.$data['id'].'"><img src="https://graph.facebook.com/'.$data['id'].'/picture" alt="picture of '.$data['name'].'"></a></dd>';
-					echo '<dd>category:'.$data['category'].'</dd>';
+		<p>
+			<?php
+				foreach($user_friends[data] as $data){
+					//echo '<p>'.$num.'My friend\'s ID = '.$data['id'].'  NAME = '.$data['name'].'</p>';
+					//$num++;
+					echo '<div class="friends"><img src="https://graph.facebook.com/'.$data['id'].'/picture" alt="'.$data['name'].' Profile Photo"><br><a href="http://YOUR DOMAIN NAME/index.php?fb_id='.$data['id'].'">'.$data['name'].'</a></div>';
 				}
 			?>
-		</dl>
+		</p>
+	</div>
 	</body>
 </html>

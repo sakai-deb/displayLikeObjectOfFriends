@@ -75,6 +75,7 @@ function listFriends(){
 			*/
 			$user_friends = $GLOBALS['facebook']->api('/me/friends', 'GET');
 			//Display for list of friends.
+			$url = $GLOBALS['param']{'redirect_url'};
             require 'templates/start.php';
 
 		} catch(FacebookApiException $e){

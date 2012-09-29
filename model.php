@@ -92,10 +92,12 @@ function listFriends(){
 this function is excecute when be accessed to http://xxxx/index.php/result?fb_id=xxx 
 */
 function getLikes($fb_id){
+	$count = 0;
+	$number = 0;
 	if (!is_null($fb_id)){
 		try{
-		/*
-			$array_likes include object which user likes.
+			/*
+			$array_my_likes include object which user likes.
 			{
  			 "data": [
 			    {
@@ -107,7 +109,20 @@ function getLikes($fb_id){
 			    ]
 			} 
 			*/
-			$array_likes = $GLOBALS['facebook']->api("/${fb_id}/likes", 'GET');
+			$array_my_likes = $GLOBALS['facebook']->api("/me/likes", 'GET');
+			$array_frd_likes = $GLOBALS['facebook']->api("/${fb_id}/likes", 'GET');
+			
+			foreach ($array_my_likes['data'] as $my_likes){
+				foreach ($array_frd_likes['data'] as $frd_likes){
+					if ($my_likes['id'] === $frd_likes['id']){
+						$same_likes[] = $my_likes;
+						$count++;
+					}
+				}
+				$number++;
+			}
+			$percent = ($count / $number) * 100;
+			sqrt($percent);
 			require 'templates/result.php';
 		} catch(FacebookApiException $e){
        		loginToFb($GLOBALS['param']);
@@ -127,14 +142,4 @@ function loginToFb($param){
 	$login_url = $GLOBALS['facebook']->getLoginUrl($param);
 	require 'templates/login.php';
 	//echo 'Please <a href="' . $login_url . '">login.</a>';
-}
-
-/*
-Get and display User's Likes Objects.
-This function excecute when be accessed to index.php or / or redirect.
-*/
-function dispMyLikes(){
-	$user_info = getFbUserInfo($GLOBALS['uid']);
-	getLikes($GLOBALS['uid']);
-	require 'templates/start.php';
 }
